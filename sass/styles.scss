@@ -30,6 +30,19 @@ body {
     form {
         display: flex;
         margin-bottom: 20px;
+        position: relative;
+
+        #input-border {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            transform: translateX(-50%);
+            height: 2px;
+            background-color: rgba(0,212,255,1);
+            margin-left: -24px;
+            transition: 0.4s;
+        }
 
         input {
             flex-grow: 1;
@@ -37,6 +50,12 @@ body {
             border: none;
             border-bottom: 2px solid gray;
             outline: none;
+            border-radius: 3px 3px 0 0;
+
+            &:focus::placeholder{
+                transition: 0.2s;
+                color: rgba(0,0,0,0.2);
+            }
         }
 
         button[type="submit"] {
@@ -60,6 +79,16 @@ body {
         li {
             display: flex;
             align-items: center;
+            padding: 10px 8px 10px 0;
+            border-radius: 3px;
+
+            &:nth-child(odd) {
+                background-color: rgba(0,212,255,0.2);
+
+                 button {
+                    background-color: rgba(128, 128, 128, 0);
+                }
+            }
 
             &.checked {
                 span {

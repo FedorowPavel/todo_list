@@ -21,13 +21,28 @@ body {
 
 .add-form form {
   display: flex;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  position: relative; }
+  .add-form form #input-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    transform: translateX(-50%);
+    height: 2px;
+    background-color: #00d4ff;
+    margin-left: -24px;
+    transition: 0.4s; }
   .add-form form input {
     flex-grow: 1;
     height: 32px;
     border: none;
     border-bottom: 2px solid gray;
-    outline: none; }
+    outline: none;
+    border-radius: 3px 3px 0 0; }
+    .add-form form input:focus::placeholder {
+      transition: 0.2s;
+      color: rgba(0, 0, 0, 0.2); }
   .add-form form button[type="submit"] {
     margin-left: 10px;
     width: 38px;
@@ -43,7 +58,13 @@ body {
   margin: 0; }
   .todo-list ol li {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    padding: 10px 8px 10px 0;
+    border-radius: 3px; }
+    .todo-list ol li:nth-child(odd) {
+      background-color: rgba(0, 212, 255, 0.2); }
+      .todo-list ol li:nth-child(odd) button {
+        background-color: rgba(128, 128, 128, 0); }
     .todo-list ol li.checked span {
       text-decoration: line-through; }
     .todo-list ol li span {
