@@ -62,6 +62,18 @@ addForm.addEventListener("submit", (event) => {
 
 });
 
+todoList.addEventListener('click', (event) => {
+    const lis = [...document.querySelectorAll('ol li')];
+
+
+    for (const li of lis) {
+        li.addEventListener('click', function () {
+            this.parentNode.removeChild(this);
+        })
+    }
+})
+
+
 
 //добавить анимацию на фокус для нижней границы инпута !!!
 //добавить функционал удаления дела
