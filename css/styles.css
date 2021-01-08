@@ -16,8 +16,36 @@ body {
   border-radius: 3px;
   height: 50%;
   width: 500px;
-  overflow-y: auto;
-  box-shadow: 5px 5px 20px black; }
+  z-index: 2;
+  box-shadow: 5px 5px 20px black;
+  position: relative; }
+
+button {
+  cursor: pointer; }
+
+@keyframes delBtnJumping {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-5px); }
+  100% {
+    transform: translateY(0); } }
+.title {
+  position: absolute;
+  bottom: 100%;
+  color: #05005d;
+  display: block;
+  background-color: white;
+  border-radius: 3px;
+  width: 100%;
+  margin-left: -24px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.61); }
+  .title h1 {
+    margin: 5px 0;
+    text-align: center; }
+    .title h1 i {
+      font-size: 24px; }
 
 .add-form form {
   display: flex;
@@ -52,26 +80,40 @@ body {
     border-radius: 3px;
     outline: none; }
 
-.todo-list ol {
-  list-style-type: none;
-  padding: 0;
-  margin: 0; }
-  .todo-list ol li {
-    display: flex;
-    align-items: center;
-    padding: 10px 8px 10px 0;
-    border-radius: 3px; }
-    .todo-list ol li:nth-child(odd) {
-      background-color: rgba(0, 212, 255, 0.2); }
-      .todo-list ol li:nth-child(odd) button {
-        background-color: rgba(128, 128, 128, 0); }
-    .todo-list ol li.checked span {
-      text-decoration: line-through; }
-    .todo-list ol li span {
-      flex-grow: 1; }
-    .todo-list ol li .delete-btn {
-      background-color: white;
-      outline: none;
-      border: none; }
+.todo-list {
+  height: 280px;
+  overflow-y: auto; }
+  .todo-list ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; }
+    .todo-list ol li {
+      display: flex;
+      align-items: center;
+      padding: 10px 8px 10px 0;
+      border-radius: 3px;
+      margin: 3px 0; }
+      .todo-list ol li:nth-child(odd) {
+        background-color: rgba(0, 212, 255, 0.2); }
+        .todo-list ol li:nth-child(odd) button {
+          background-color: rgba(128, 128, 128, 0); }
+      .todo-list ol li.checked {
+        background-color: #d7ff96; }
+        .todo-list ol li.checked span {
+          text-decoration: line-through; }
+      .todo-list ol li span {
+        flex-grow: 1;
+        padding-left: 10px; }
+      .todo-list ol li .delete-btn {
+        background-color: white;
+        outline: none;
+        border: none;
+        cursor: pointer; }
+        .todo-list ol li .delete-btn.checked {
+          background-color: #d7ff96;
+          animation: delBtnJumping 2s infinite ease; }
+        .todo-list ol li .delete-btn:hover {
+          transition: 0.3s;
+          transform: rotate(360deg); }
 
 /*# sourceMappingURL=styles.css.map */

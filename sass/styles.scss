@@ -21,9 +21,49 @@ body {
 
     height: 50%;
     width: 500px;
-    overflow-y: auto;
+    z-index: 2;
+    // overflow-y: auto;
 
     box-shadow: 5px 5px 20px black;
+    position: relative;
+}
+
+button {
+    cursor: pointer;
+}
+
+@keyframes delBtnJumping {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.title {
+    position: absolute;
+    bottom: 100%;
+    color: rgba(5,0,93,1);
+    display: block;
+    background-color: white;
+    border-radius: 3px;
+    width: 100%;
+    margin-left: -24px;
+    margin-bottom:20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.61);
+    
+    h1 {
+        margin: 5px 0;
+        text-align: center;
+
+        i {
+            font-size: 24px;
+        }
+    }
 }
 
 .add-form {
@@ -71,6 +111,9 @@ body {
 }
 
 .todo-list {
+    height: 280px;
+    overflow-y: auto;
+
     ol {
         list-style-type: none;
         padding: 0;
@@ -81,6 +124,7 @@ body {
             align-items: center;
             padding: 10px 8px 10px 0;
             border-radius: 3px;
+            margin: 3px 0;
 
             &:nth-child(odd) {
                 background-color: rgba(0,212,255,0.2);
@@ -91,6 +135,7 @@ body {
             }
 
             &.checked {
+                background-color: rgb(215, 255, 150);
                 span {
                     text-decoration: line-through;
                 }
@@ -98,12 +143,25 @@ body {
 
             span {
                 flex-grow: 1;
+                padding-left: 10px;
             }
 
             .delete-btn {
                 background-color: white;
                 outline: none;
                 border: none;
+                
+                cursor: pointer;
+
+                &.checked {
+                    background-color: rgb(215, 255, 150);
+                    animation: delBtnJumping 2s infinite ease;
+                }
+
+                &:hover {
+                    transition:  0.3s;
+                    transform: rotate(360deg);
+                }
             }
             
         }
