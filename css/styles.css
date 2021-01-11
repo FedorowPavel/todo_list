@@ -19,7 +19,9 @@ body {
   width: 500px;
   z-index: 2;
   box-shadow: 5px 5px 20px black;
-  position: relative; }
+  position: relative;
+  display: flex;
+  flex-direction: column; }
 
 button {
   cursor: pointer; }
@@ -82,12 +84,15 @@ button {
     outline: none; }
 
 .todo-list {
-  height: 280px;
-  overflow-y: auto; }
+  overflow-y: auto;
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 10px; }
   .todo-list ol {
     list-style-type: none;
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    flex-grow: 1; }
     .todo-list ol li {
       display: flex;
       align-items: center;
@@ -116,5 +121,9 @@ button {
         .todo-list ol li .delete-btn:hover {
           transition: 0.3s;
           transform: rotate(360deg); }
+
+.delete-checked-wrapper {
+  display: flex;
+  justify-content: flex-end; }
 
 /*# sourceMappingURL=styles.css.map */

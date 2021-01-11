@@ -28,6 +28,9 @@ body {
 
     box-shadow: 5px 5px 20px black;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
 }
 
 button {
@@ -113,13 +116,18 @@ button {
 }
 
 .todo-list {
-    height: 280px;
+    // height: 280px;
     overflow-y: auto;
+    display: flex;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    
 
     ol {
         list-style-type: none;
         padding: 0;
         margin: 0;
+        flex-grow: 1;
         
         li {
             display: flex;
@@ -167,5 +175,15 @@ button {
             }
             
         }
+
+        
+    }
+
+    
+}
+.delete-checked {
+    &-wrapper {
+        display: flex;
+        justify-content: flex-end;
     }
 }
