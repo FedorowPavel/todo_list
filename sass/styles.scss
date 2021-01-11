@@ -121,7 +121,9 @@ button {
     display: flex;
     flex-grow: 1;
     margin-bottom: 10px;
-    
+    // &::-webkit-scrollbar {
+    //     width: 10px;
+    // }
 
     ol {
         list-style-type: none;
