@@ -153,12 +153,12 @@ button {
                 }
             }
 
-            span {
+            span, input[type="text"] {
                 flex-grow: 1;
                 padding-left: 10px;
             }
 
-            .delete-btn {
+            .delete-btn, .edit-btn {
                 background-color: white;
                 outline: none;
                 border: none;

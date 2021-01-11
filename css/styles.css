@@ -107,18 +107,18 @@ button {
         background-color: #d7ff96; }
         .todo-list ol li.checked span {
           text-decoration: line-through; }
-      .todo-list ol li span {
+      .todo-list ol li span, .todo-list ol li input[type="text"] {
         flex-grow: 1;
         padding-left: 10px; }
-      .todo-list ol li .delete-btn {
+      .todo-list ol li .delete-btn, .todo-list ol li .edit-btn {
         background-color: white;
         outline: none;
         border: none;
         cursor: pointer; }
-        .todo-list ol li .delete-btn.checked {
+        .todo-list ol li .delete-btn.checked, .todo-list ol li .edit-btn.checked {
           background-color: #d7ff96;
           animation: delBtnJumping 2s infinite ease; }
-        .todo-list ol li .delete-btn:hover {
+        .todo-list ol li .delete-btn:hover, .todo-list ol li .edit-btn:hover {
           transition: 0.3s;
           transform: rotate(360deg); }
 
