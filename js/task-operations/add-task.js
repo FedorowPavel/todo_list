@@ -55,6 +55,7 @@ function addTask(event) {
     const editBtn = document.getElementById(`${tasks.length - 1}edit`);
 
     //при изменении состояни чекбокса выполняем функцию
+    //то есть вешаем обработчик события, который ждет клика
     checkbox.addEventListener('change', checkTask)
     //при нажатии на кнопку удалить выполняем функцию
     delBtn.addEventListener('click', delTask)

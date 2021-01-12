@@ -18,6 +18,8 @@ function editTask(event) {
     const { classList: iconClass } = icon;
     // const iconClass = icon.classList
 
+    const checkbox = li.querySelector('input[type="checkbox"]')
+
     if (span) {
         const { textContent: text } = span;
 
@@ -29,6 +31,9 @@ function editTask(event) {
         //заменяем класс иконок
         iconClass.remove('fa-edit');
         iconClass.add('fa-save');
+
+        //устанавливаем атрибут disabel for checkbox
+        checkbox.setAttribute("disabled", "true");
 
         li.replaceChild(input, span);
 
@@ -42,6 +47,10 @@ function editTask(event) {
     //заменяем класс иконок
     iconClass.remove('fa-save');
     iconClass.add('fa-edit');
+
+    //убираем атрибут дизабл
+    checkbox.removeAttribute("disabled");
+
 
     const newSpan = document.createElement('span');
     newSpan.textContent = newText;

@@ -114,10 +114,25 @@ button {
       padding: 10px 8px;
       border-radius: 3px;
       margin: 3px 0; }
+      .todo-list ol li input[type="text"] {
+        outline: none;
+        border: none;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        box-sizing: border-box;
+        font-size: 16px;
+        border-radius: 4px;
+        font-style: italic;
+        color: #5c5c5c;
+        padding: 0 10px;
+        background-color: rgba(5, 0, 93, 0.1); }
       .todo-list ol li:nth-child(odd) {
         background-color: rgba(5, 0, 93, 0.1); }
+        .todo-list ol li:nth-child(odd) input {
+          background-color: white; }
         .todo-list ol li:nth-child(odd) button {
           background-color: rgba(128, 128, 128, 0); }
+      .todo-list ol li:nth-child(even) input {
+        background-color: rgba(5, 0, 93, 0.1); }
       .todo-list ol li.checked {
         background-color: #ddf5b7; }
         .todo-list ol li.checked span {
@@ -139,17 +154,6 @@ button {
       .todo-list ol li .delete-btn:hover {
         transition: 0.3s;
         transform: rotate(360deg); }
-      .todo-list ol li input[type="text"] {
-        outline: none;
-        border: none;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        box-sizing: border-box;
-        font-size: 16px;
-        border-radius: 4px;
-        font-style: italic;
-        color: gray;
-        padding: 0 10px;
-        background-color: rgba(255, 0, 0, 0.15); }
 
 .delete-checked-wrapper {
   display: flex;
@@ -164,6 +168,10 @@ button {
   outline: none;
   box-shadow: 3px 3px 6px -1px gray;
   border: 1px solid rgba(128, 128, 128, 0.555); }
+  .delete-checked-btn[disabled="true"] {
+    color: rgba(128, 128, 128, 0.658);
+    box-shadow: none;
+    cursor: not-allowed; }
   .delete-checked-btn:active {
     box-shadow: 1px 1px 6px -1px gray; }
 

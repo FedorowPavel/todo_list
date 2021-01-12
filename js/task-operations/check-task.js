@@ -14,14 +14,24 @@ function checkTask(event) {
     //получаем кнопку delBtn
     const delBtn = target.parentNode.querySelector('button');
 
+    const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
+
     if (checked) {
         //меняем стили
         li.classList.add('checked');
         delBtn.classList.add('checked');
 
+        if (deleteCheckedBtn.hasAttribute('disabled')) {
+            deleteCheckedBtn.removeAttribute('disabled');
+        }
+
+
     } else {
         li.classList.remove('checked');
         delBtn.classList.remove('checked');
+        if (document.querySelectorAll('li.checked').length === 0) {
+            deleteCheckedBtn.setAttribute('disabled', "true")
+        }
     }
 }
 

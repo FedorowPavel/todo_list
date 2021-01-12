@@ -16,7 +16,7 @@ deleteCheckedBtn.addEventListener('click', deleteCheckedTasks)
 
 /* поправить стили !!!
 заменить каранандаш в режиме едит !!!
-чекбок дизэйбл
+чекбок дизэйбл!!!
 */
 
 

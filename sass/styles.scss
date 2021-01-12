@@ -158,13 +158,38 @@ button {
             border-radius: 3px;
             margin: 3px 0;
 
+            input[type="text"] {
+                outline: none;
+                border: none;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                box-sizing: border-box;
+                font-size: 16px;
+                border-radius: 4px;
+                font-style: italic;
+                color: rgb(92, 92, 92);
+                padding: 0 10px;
+                background-color: rgba(5,0,93,0.1);
+            }
+
             &:nth-child(odd) {
+                input {
+                    background-color:white;
+                }
+
                 background-color: rgba(5,0,93,0.1);
 
                  button {
                     background-color: rgba(128, 128, 128, 0);
                 }
             }
+
+            &:nth-child(even) {
+                input {
+                    background-color:rgba(5,0,93,0.1);
+                }
+            }
+
+
 
             &.checked {
                 background-color: #ddf5b7;
@@ -205,19 +230,7 @@ button {
                 }
             }
 
-            input[type="text"] {
-                outline: none;
-                border: none;
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                box-sizing: border-box;
-                font-size: 16px;
-                border-radius: 4px;
-                font-style: italic;
-                color: gray;
-                padding: 0 10px;
-                background-color: rgba(255, 0, 0, 0.15);
-
-            }
+            
         }
     }
 }
@@ -239,8 +252,16 @@ button {
         box-shadow: 3px 3px 6px -1px gray;
         border: 1px solid rgba(128, 128, 128, 0.555);
 
+        &[disabled="true"] {
+            color: rgba(128, 128, 128, 0.658);
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
         &:active {
             box-shadow: 1px 1px 6px -1px gray;
         }
+
+
     }
 }
