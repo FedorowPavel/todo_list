@@ -14,7 +14,7 @@ const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
 deleteCheckedBtn.addEventListener('click', deleteCheckedTasks)
 
 
-/* поправить стили
+/* поправить стили !!!
 заменить каранандаш в режиме едит
 чекбок дизэйбл
 */

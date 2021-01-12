@@ -4,7 +4,7 @@ html, body {
 
 body {
   background: #05005d;
-  background: linear-gradient(90deg, #05005d 0%, #090979 35%, #00d4ff 100%);
+  background-color: #89899e;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,14 +61,14 @@ button {
     width: 0;
     transform: translateX(-50%);
     height: 2px;
-    background-color: #00d4ff;
+    background-color: #05005d;
     margin-left: -24px;
     transition: 0.4s; }
   .add-form form input {
     flex-grow: 1;
     height: 32px;
     border: none;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.733);
     outline: none;
     border-radius: 3px 3px 0 0; }
     .add-form form input:focus::placeholder {
@@ -78,16 +78,29 @@ button {
     margin-left: 10px;
     width: 38px;
     border: none;
-    background-color: #00d4ff;
-    color: white;
+    background-color: white;
+    color: #05005d;
     border-radius: 3px;
-    outline: none; }
+    outline: none;
+    box-shadow: 2px 2px 6px -1px gray;
+    border: 1px solid rgba(128, 128, 128, 0.288); }
+    .add-form form button[type="submit"]:active {
+      box-shadow: 1px 1px 6px -1px gray; }
 
 .todo-list {
   overflow-y: auto;
   display: flex;
   flex-grow: 1;
   margin-bottom: 10px; }
+  .todo-list::-webkit-scrollbar {
+    width: 12px; }
+  .todo-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(5, 0, 93, 0.2);
+    border-radius: 3px; }
+  .todo-list::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(5, 0, 93, 0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(5, 0, 93, 0.4); }
   .todo-list ol {
     list-style-type: none;
     padding: 0;
@@ -96,17 +109,21 @@ button {
     .todo-list ol li {
       display: flex;
       align-items: center;
-      padding: 10px 8px 10px 0;
+      padding: 10px 8px;
       border-radius: 3px;
       margin: 3px 0; }
       .todo-list ol li:nth-child(odd) {
-        background-color: rgba(0, 212, 255, 0.2); }
+        background-color: rgba(5, 0, 93, 0.1); }
         .todo-list ol li:nth-child(odd) button {
           background-color: rgba(128, 128, 128, 0); }
       .todo-list ol li.checked {
-        background-color: #d7ff96; }
+        background-color: #ddf5b7; }
         .todo-list ol li.checked span {
           text-decoration: line-through; }
+        .todo-list ol li.checked .delete-btn {
+          animation: delBtnJumping 2s infinite ease; }
+        .todo-list ol li.checked .delete-btn, .todo-list ol li.checked .edit-btn {
+          background-color: #ddf5b7; }
       .todo-list ol li span, .todo-list ol li input[type="text"] {
         flex-grow: 1;
         padding-left: 10px; }
@@ -116,14 +133,35 @@ button {
         border: none;
         cursor: pointer; }
         .todo-list ol li .delete-btn.checked, .todo-list ol li .edit-btn.checked {
-          background-color: #d7ff96;
-          animation: delBtnJumping 2s infinite ease; }
-        .todo-list ol li .delete-btn:hover, .todo-list ol li .edit-btn:hover {
-          transition: 0.3s;
-          transform: rotate(360deg); }
+          background-color: #ddf5b7; }
+      .todo-list ol li .delete-btn:hover {
+        transition: 0.3s;
+        transform: rotate(360deg); }
+      .todo-list ol li input[type="text"] {
+        outline: none;
+        border: none;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        box-sizing: border-box;
+        font-size: 16px;
+        border-radius: 4px;
+        color: gray;
+        padding: 0 10px;
+        background-color: rgba(255, 0, 0, 0.15); }
 
 .delete-checked-wrapper {
   display: flex;
   justify-content: flex-end; }
+.delete-checked-btn {
+  margin-left: 10px;
+  height: 32px;
+  background-color: white;
+  color: #05005d;
+  border-radius: 3px;
+  font-weight: bold;
+  outline: none;
+  box-shadow: 3px 3px 6px -1px gray;
+  border: 1px solid rgba(128, 128, 128, 0.555); }
+  .delete-checked-btn:active {
+    box-shadow: 1px 1px 6px -1px gray; }
 
 /*# sourceMappingURL=styles.css.map */
