@@ -43,8 +43,8 @@ function addTask(event) {
     newTodo.innerHTML = `
     <input type="checkbox" id=${tasks.length - 1}> 
     <span>${todoText}</span>  
-    <button class="edit-btn" id=${tasks.length - 1}edit><i class="far fa-edit"></i></button>
-    <button class="delete-btn" id=${tasks.length - 1}del><i class="far fa-trash-alt"></i></button>
+    <button class="edit-btn" id=${tasks.length - 1}edit><i class="far fa-edit fa-fw"></i></button>
+    <button class="delete-btn" id=${tasks.length - 1}del><i class="far fa-trash-alt fa-fw"></i></button>
     `;
 
     //записываем каждый чекбокс

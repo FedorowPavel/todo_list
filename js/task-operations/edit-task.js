@@ -12,12 +12,23 @@ function editTask(event) {
 
     const span = li.querySelector('span');
 
+    //записываем иконки
+    const icon = li.querySelector('i');
+    //записываем их список классов
+    const { classList: iconClass } = icon;
+    // const iconClass = icon.classList
+
     if (span) {
         const { textContent: text } = span;
 
         const input = document.createElement('input');
         input.setAttribute('value', text);
         input.setAttribute('type', "text");
+
+
+        //заменяем класс иконок
+        iconClass.remove('fa-edit');
+        iconClass.add('fa-save');
 
         li.replaceChild(input, span);
 
@@ -27,6 +38,10 @@ function editTask(event) {
 
     const input = li.querySelector('input[type="text"]');
     const { value: newText } = input;
+
+    //заменяем класс иконок
+    iconClass.remove('fa-save');
+    iconClass.add('fa-edit');
 
     const newSpan = document.createElement('span');
     newSpan.textContent = newText;

@@ -146,6 +146,7 @@ button {
         box-sizing: border-box;
         font-size: 16px;
         border-radius: 4px;
+        font-style: italic;
         color: gray;
         padding: 0 10px;
         background-color: rgba(255, 0, 0, 0.15); }
