@@ -133,6 +133,7 @@ button {
     }
     
     &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(5,0,93,0.2);
         -webkit-box-shadow: inset 0 0 6px rgba(5,0,93,0.2); 
         border-radius: 3px;
     }
@@ -140,6 +141,7 @@ button {
     &::-webkit-scrollbar-thumb {
         border-radius: 4px;
         background-color: rgba(5,0,93,0.1);
+        box-shadow: inset 0 0 6px rgba(5,0,93,0.4);
         -webkit-box-shadow: inset 0 0 6px rgba(5,0,93,0.4); 
     }
 
@@ -174,7 +176,7 @@ button {
                     animation: delBtnJumping 2s infinite ease;
                 }
 
-                .delete-btn, .edit-btn,  {
+                .delete-btn, .edit-btn  {
                     background-color: #ddf5b7;;
                 }
             }
@@ -196,7 +198,7 @@ button {
                 }
             }
 
-            .delete-btn,  {
+            .delete-btn  {
                 &:hover {
                     transition:  0.3s;
                     transform: rotate(360deg);

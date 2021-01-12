@@ -95,11 +95,13 @@ button {
   .todo-list::-webkit-scrollbar {
     width: 12px; }
   .todo-list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(5, 0, 93, 0.2);
     -webkit-box-shadow: inset 0 0 6px rgba(5, 0, 93, 0.2);
     border-radius: 3px; }
   .todo-list::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: rgba(5, 0, 93, 0.1);
+    box-shadow: inset 0 0 6px rgba(5, 0, 93, 0.4);
     -webkit-box-shadow: inset 0 0 6px rgba(5, 0, 93, 0.4); }
   .todo-list ol {
     list-style-type: none;
