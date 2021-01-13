@@ -29,6 +29,7 @@ function checkTask(event) {
     } else {
         li.classList.remove('checked');
         delBtn.classList.remove('checked');
+
         if (document.querySelectorAll('li.checked').length === 0) {
             deleteCheckedBtn.setAttribute('disabled', "true")
         }
