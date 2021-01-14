@@ -6,7 +6,9 @@ function deleteCheckedTasks() {
         checkedTask.remove();
     })
 
+
     deleteCheckedBtn.setAttribute('disabled', "true")
+
 }
 
 export default deleteCheckedTasks;
