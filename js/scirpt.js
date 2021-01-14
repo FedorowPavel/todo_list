@@ -1,5 +1,6 @@
 import addTask from './task-operations/add-task.js';
-import deleteCheckedTasks from "./task-operations/delete-checked-tasks.js"
+import deleteCheckedTasks from "./task-operations/delete-checked-tasks.js";
+
 
 //находим форму добавления
 const addForm = document.querySelector(".add-form");
@@ -11,6 +12,12 @@ addForm.addEventListener("submit", addTask);
 const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
 //вешаем на нее обработчик событий
 deleteCheckedBtn.addEventListener('click', deleteCheckedTasks)
+
+
+/* поправить стили !!!
+заменить каранандаш в режиме едит !!!
+чекбок дизэйбл!!!
+*/
 
 
 
