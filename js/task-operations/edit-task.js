@@ -1,4 +1,5 @@
 import { ENTER_KEY_CODE } from '../constants.js';
+import taskList from '../tasks.js';
 
 function submitTask(event) {
     if (event.keyCode !== ENTER_KEY_CODE) {
@@ -27,12 +28,18 @@ function saveTask(li, iconClass, checkbox) {
 
     //убираем атрибут дизабл
     checkbox.removeAttribute("disabled");
+    console.log(checkbox.checked)
 
 
     const newSpan = document.createElement('span');
     newSpan.textContent = newText;
 
     li.replaceChild(newSpan, input);
+
+    taskList.edit(newText, li.id);
+
+    localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
+
 }
 
 function editTask(event) {
@@ -87,6 +94,9 @@ function editTask(event) {
         return;
     }
     saveTask(li, iconClass, checkbox);
+
+
+
 }
 
 export default editTask;

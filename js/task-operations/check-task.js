@@ -1,3 +1,5 @@
+import taskList from '../tasks.js';
+
 //функция для смены стилей отдельного дела при выборе (когда сделано)
 function checkTask(event) {
 
@@ -24,8 +26,6 @@ function checkTask(event) {
         if (deleteCheckedBtn.hasAttribute('disabled')) {
             deleteCheckedBtn.removeAttribute('disabled');
         }
-
-
     } else {
         li.classList.remove('checked');
         delBtn.classList.remove('checked');
@@ -34,6 +34,10 @@ function checkTask(event) {
             deleteCheckedBtn.setAttribute('disabled', "true")
         }
     }
+
+    taskList.check(li.id)
+
+    localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
 }
 
 export default checkTask;

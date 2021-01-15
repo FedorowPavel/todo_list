@@ -18,12 +18,13 @@ const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
 deleteCheckedBtn.addEventListener('click', deleteCheckedTasks)
 
 
+
 taskList.tasks.forEach(task => {
     createTask(task);
 })
 
 
-//дописать методы на эдит, чек, делитчекд
+//дописать методы на
 //cltkfnm
 
 

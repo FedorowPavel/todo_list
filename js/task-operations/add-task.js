@@ -25,6 +25,8 @@ function generateId(tasks) {
 }
 
 export function createTask(task) {
+
+
     //создаем элемент списка
     const newTodo = document.createElement('li');
 
@@ -40,6 +42,22 @@ export function createTask(task) {
     <button class="edit-btn" id=${task.id}edit><i class="far fa-edit fa-fw"></i></button>
     <button class="delete-btn" id=${task.id}del><i class="far fa-trash-alt fa-fw"></i></button>
     `;
+
+
+    //код для установки чекбокса при перезагрузке
+    if (task.checked === true) {
+        newTodo.classList.add('checked');
+        const checkboxInput = newTodo.querySelector('input[type="checkbox"]');
+        checkboxInput.setAttribute('checked', true)
+    }
+
+
+    //код делающим доступным кнопку удалить все выделенные
+    //если были сохраненные отмеченные
+    if (document.querySelectorAll('li.checked').length !== 0) {
+        const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
+        deleteCheckedBtn.removeAttribute('disabled');
+    }
 
     //записываем каждый чекбокс
     const checkbox = document.getElementById(`${task.id}`);
