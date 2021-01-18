@@ -1,3 +1,7 @@
+import taskList from '../tasks.js';
+import { getTaskId } from '../utils.js';
+import storageService from '../storage-service.js'
+
 //функция для смены стилей отдельного дела при выборе (когда сделано)
 function checkTask(event) {
 
@@ -24,8 +28,6 @@ function checkTask(event) {
         if (deleteCheckedBtn.hasAttribute('disabled')) {
             deleteCheckedBtn.removeAttribute('disabled');
         }
-
-
     } else {
         li.classList.remove('checked');
         delBtn.classList.remove('checked');
@@ -34,6 +36,11 @@ function checkTask(event) {
             deleteCheckedBtn.setAttribute('disabled', "true")
         }
     }
+
+
+    const taskId = getTaskId(li);
+    taskList.check(taskId);
+    storageService.set('tasks', JSON.stringify(taskList.tasks));
 }
 
 export default checkTask;
