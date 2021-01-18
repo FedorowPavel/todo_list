@@ -37,7 +37,7 @@ export function createTask(task) {
 
     //добавляем в элемент списка штмл с текстом инпута и тд
     newTodo.innerHTML = `
-    <input type="checkbox" id=${task.id}> 
+    <input type="checkbox" id=${task.id}checkbox> 
     <span>${task.text}</span>  
     <button class="edit-btn" id=${task.id}edit><i class="far fa-edit fa-fw"></i></button>
     <button class="delete-btn" id=${task.id}del><i class="far fa-trash-alt fa-fw"></i></button>
@@ -60,7 +60,7 @@ export function createTask(task) {
     }
 
     //записываем каждый чекбокс
-    const checkbox = document.getElementById(`${task.id}`);
+    const checkbox = document.getElementById(`${task.id}checkbox`);
     //записываем каждую кнопку удаления
     const delBtn = document.getElementById(`${task.id}del`);
 
