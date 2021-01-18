@@ -2,6 +2,7 @@ import checkTask from './check-task.js';
 import delTask from './del-task.js';
 import editTask from "./edit-task.js";
 import taskList from '../tasks.js'
+import storageService from '../storage-service.js';
 
 //находим список дел
 const todoList = document.querySelector('.todo-list ol');
@@ -45,7 +46,7 @@ export function createTask(task) {
 
 
     //код для установки чекбокса при перезагрузке
-    if (task.checked === true) {
+    if (task.checked) {
         newTodo.classList.add('checked');
         const checkboxInput = newTodo.querySelector('input[type="checkbox"]');
         checkboxInput.setAttribute('checked', true)
@@ -110,7 +111,7 @@ function addTask(event) {
     event.target.reset();
 
 
-    localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
+    storageService.set('tasks', JSON.stringify(taskList.tasks));
 }
 
 

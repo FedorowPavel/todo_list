@@ -1,4 +1,5 @@
 import taskList from '../tasks.js';
+import storageService from '../storage-service.js'
 
 //функция удаления элемента из списка дел при нажатии на кнопку delBtn
 function delTask(event) {
@@ -19,7 +20,7 @@ function delTask(event) {
         deleteCheckedBtn.setAttribute('disabled', "true")
     }
 
-    localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
+    storageService.set('tasks', JSON.stringify(taskList.tasks));
 }
 
 export default delTask;

@@ -1,3 +1,5 @@
+import storageService from './storage-service.js'
+
 class TaskList {
     constructor(tasks) {
         this.tasks = tasks;
@@ -12,23 +14,26 @@ class TaskList {
     }
 
     check(id) {
-        this.tasks.forEach((task) => {
-            if (task.id === parseInt(id)) {
-                task.checked === true ? task.checked = false : task.checked = true
+        this.tasks = this.tasks.map(task => {
+            if (task.id === id) {
+                return { ...task, checked: !task.checked }
             }
+            return task;
         })
+
     }
 
     edit(text, id) {
-        this.tasks.forEach((task) => {
-            if (task.id === parseInt(id)) {
-                task.text = text;
+        this.tasks = this.tasks.map(task => {
+            if (task.id === id) {
+                return { ...task, text: text };
             }
+            return task;
         })
     }
 }
 
-const tasks = JSON.parse(localStorage.getItem('tasks'))
+const tasks = JSON.parse(storageService.get('tasks'))
 
 const taskList = new TaskList(tasks ? tasks : []); // =[]
 

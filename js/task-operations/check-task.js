@@ -1,4 +1,6 @@
 import taskList from '../tasks.js';
+import { getTaskId } from '../utils.js';
+import storageService from '../storage-service.js'
 
 //функция для смены стилей отдельного дела при выборе (когда сделано)
 function checkTask(event) {
@@ -35,9 +37,10 @@ function checkTask(event) {
         }
     }
 
-    taskList.check(li.id)
 
-    localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
+    const taskId = getTaskId(li);
+    taskList.check(taskId);
+    storageService.set('tasks', JSON.stringify(taskList.tasks));
 }
 
 export default checkTask;

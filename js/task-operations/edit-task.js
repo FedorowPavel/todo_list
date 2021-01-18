@@ -1,5 +1,7 @@
 import { ENTER_KEY_CODE } from '../constants.js';
 import taskList from '../tasks.js';
+import { getTaskId } from '../utils.js';
+import storageService from '../storage-service.js'
 
 function submitTask(event) {
     if (event.keyCode !== ENTER_KEY_CODE) {
@@ -36,9 +38,9 @@ function saveTask(li, iconClass, checkbox) {
 
     li.replaceChild(newSpan, input);
 
-    taskList.edit(newText, li.id);
-
-    localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
+    const taskId = getTaskId(li);
+    taskList.edit(newText, taskId);
+    storageService.set('tasks', JSON.stringify(taskList.tasks));
 
 }
 
