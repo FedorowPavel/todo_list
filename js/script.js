@@ -5,6 +5,7 @@ import checkList from './list-operations/check-list.js';
 import delList from './list-operations/del-list.js';
 import storageService from './storage-service.js';
 import deleteCheckedLists from "./list-operations/delete-cheched-lists.js";
+import editList from './list-operations/edit-list.js';
 
 const currentUrl = window.location.pathname;
 const rootDiv = document.querySelector('.container');
@@ -63,9 +64,7 @@ function createList(list) {
 
     newListItem.innerHTML = `
     <input type="checkbox" id=${list.id}checkbox> 
-    <a>
-    ${list.name}
-    </a>
+    <a>${list.name}</a>
     <button class="edit-btn" id=${list.id}edit><i class="far fa-edit fa-fw"></i></button>
     <button class="delete-btn" id=${list.id}del><i class="far fa-trash-alt fa-fw"></i></button>
     `
@@ -83,7 +82,7 @@ function createList(list) {
     //при нажатии на кнопку удалить выполняем функцию
     delBtn.addEventListener('click', delList)
 
-    // editBtn.addEventListener('click',)
+    editBtn.addEventListener('click', editList)
 
 
     storageService.set('lists', JSON.stringify(listsList.lists));

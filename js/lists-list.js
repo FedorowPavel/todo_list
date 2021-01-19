@@ -23,6 +23,15 @@ class ListsList {
         })
 
     }
+
+    edit(name, id) {
+        this.lists = this.lists.map(list => {
+            if (list.id === id) {
+                return { ...list, name: name };
+            }
+            return list;
+        })
+    }
 }
 
 const lists = storageService.get('lists')
