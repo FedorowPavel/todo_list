@@ -3,7 +3,8 @@ import { generateId } from './utils.js';
 import listsList from './lists-list.js';
 import checkList from './list-operations/check-list.js';
 import delList from './list-operations/del-list.js';
-import storageService from './storage-service.js'
+import storageService from './storage-service.js';
+import deleteCheckedLists from "./list-operations/delete-cheched-lists.js";
 
 const currentUrl = window.location.pathname;
 const rootDiv = document.querySelector('.container');
@@ -88,7 +89,10 @@ function createList(list) {
     storageService.set('lists', JSON.stringify(listsList.lists));
 }
 
-
+//находим кнопку удаления отмеченых
+const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
+//вешаем на нее обработчик событий
+deleteCheckedBtn.addEventListener('click', deleteCheckedLists)
 
 
 //сделать чтобы список генерировался из локал сторадж

@@ -1,4 +1,4 @@
-import taskList from '../tasks.js';
+import listsList from '../lists-list.js';
 import storageService from '../storage-service.js';
 import { getTaskId } from '../utils.js';
 
