@@ -3,6 +3,7 @@ export function getTaskId(element) {
 }
 
 export function generateId(tasks) {
+    // console.log(tasks)
     //получаем массив значений свойства id всех объектов task
     const ids = tasks.map(task => {
         return task.id;
