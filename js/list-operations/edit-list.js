@@ -58,7 +58,6 @@ function editList(event) {
     const li = event.target.closest('li');
 
     const link = li.querySelector('a');
-    console.log(link)
 
     //записываем иконки
     const icon = li.querySelector('.edit-btn i');
