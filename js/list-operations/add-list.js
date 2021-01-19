@@ -71,6 +71,11 @@ function addList(event) {
     //содержит в себе поле нейм формы
     const listName = formData.get('name');
 
+    //если поле пустое ничего не добавляем
+    if (!listName) {
+        return;
+    }
+
     //создам объект для отдельного элемента списка
     const newList = {
         id: generateId(listsList.lists),
