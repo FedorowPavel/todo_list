@@ -2,6 +2,8 @@ import listsTemplate from './templates/pages/lists/index.js';
 import { generateId } from './utils.js';
 import listsList from './lists-list.js';
 import checkList from './list-operations/check-list.js';
+import delList from './list-operations/del-list.js';
+import storageService from './storage-service.js'
 
 const currentUrl = window.location.pathname;
 const rootDiv = document.querySelector('.container');
@@ -78,13 +80,15 @@ function createList(list) {
     //то есть вешаем обработчик события, который ждет клика
     checkbox.addEventListener('change', checkList)
     //при нажатии на кнопку удалить выполняем функцию
-    // delBtn.addEventListener('click', delTask)
+    delBtn.addEventListener('click', delList)
 
-    // editBtn.addEventListener('click', editTask)
+    // editBtn.addEventListener('click',)
 
 
-    // storageService.set('lists', JSON.stringify(listsList.lists));
+    storageService.set('lists', JSON.stringify(listsList.lists));
 }
+
+
 
 
 //сделать чтобы список генерировался из локал сторадж

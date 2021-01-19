@@ -10,6 +10,10 @@ class ListsList {
         this.lists = [...this.lists, newList];
     }
 
+    delete(id) {
+        this.lists = this.lists.filter(list => list.id !== id)
+    }
+
     check(id) {
         this.lists = this.lists.map(list => {
             if (list.id === id) {
