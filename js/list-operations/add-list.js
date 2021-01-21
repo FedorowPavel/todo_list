@@ -4,11 +4,11 @@ import editlist from "./edit-list.js";
 import listsList from '../lists-list.js';
 import { generateId } from '../utils.js';
 import storageService from '../storage-service.js';
+import { renderList } from '../script.js'
 
 
 
 export function createList(list) {
-    // console.log(list);
     //находим сам список
     const listofLists = document.querySelector('ol');
 
@@ -21,10 +21,26 @@ export function createList(list) {
 
     newListItem.innerHTML = `
     <input type="checkbox" id=${list.id}checkbox> 
-    <a>${list.name}</a>
+    <a href="#">${list.name}</a>
     <button class="edit-btn" id=${list.id}edit><i class="far fa-edit fa-fw"></i></button>
     <button class="delete-btn" id=${list.id}del><i class="far fa-trash-alt fa-fw"></i></button>
     `
+
+    const linkToList = newListItem.querySelector('a');
+
+    linkToList.addEventListener('click', (event) => {
+        //чтобы решетка не появилась в конце урла
+        event.preventDefault();
+
+        window.history.pushState(
+            {},
+            `/list/${list.id}`,
+            window.location.origin + `/list/${list.id}`
+        );
+
+        renderList();
+    })
+
 
     //код для установки чекбокса при перезагрузке
     if (list.checked) {
@@ -57,7 +73,7 @@ export function createList(list) {
     editBtn.addEventListener('click', editlist)
 
 
-    storageService.set('lists', JSON.stringify(listsList.lists));
+
 }
 
 function addList(event) {
@@ -91,6 +107,8 @@ function addList(event) {
     //очистим поле ввода формы
     event.target.reset();
     //сюда дописать функионал добалвения (как в эдд таск)
+
+    storageService.set('lists', JSON.stringify(listsList.lists));
 
 }
 

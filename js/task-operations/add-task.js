@@ -5,10 +5,11 @@ import taskList from '../tasks.js';
 import storageService from '../storage-service.js';
 import { generateId } from '../utils.js';
 
-//находим список дел
-const todoList = document.querySelector('.todo-list ol');
+
 
 export function createTask(task) {
+    //находим список дел
+    const todoList = document.querySelector('.todo-list ol');
 
 
     //создаем элемент списка
