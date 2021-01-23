@@ -4,7 +4,7 @@ import editlist from "./edit-list.js";
 import listsList from '../lists-list.js';
 import { generateId } from '../utils.js';
 import storageService from '../storage-service.js';
-import { renderList } from '../script.js'
+import renderList from '../render/render-list.js';
 
 
 

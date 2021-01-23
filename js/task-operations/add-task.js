@@ -3,7 +3,7 @@ import delTask from './del-task.js';
 import editTask from "./edit-task.js";
 import taskList from '../tasks.js';
 import storageService from '../storage-service.js';
-import { generateId } from '../utils.js';
+import { generateId, getListIdByUrl } from '../utils.js';
 
 
 
@@ -81,6 +81,7 @@ function addTask(event) {
     //создаем объект для хранения текста инпута и состояния чекбокса
     const newTask = {
         id: generateId(taskList.tasks),
+        parentListId: getListIdByUrl(),
         text: todoText,
         checked: false,
     }

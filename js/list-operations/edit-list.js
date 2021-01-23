@@ -34,6 +34,7 @@ function saveList(li, iconClass, checkbox) {
 
 
     const newLink = document.createElement('a');
+    newLink.setAttribute('href', '#')
     newLink.textContent = newText;
 
     li.replaceChild(newLink, input);
