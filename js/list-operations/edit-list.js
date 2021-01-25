@@ -1,6 +1,6 @@
 import { ENTER_KEY_CODE } from '../constants.js';
 import listsList from '../lists-list.js';
-import { getTaskId } from '../utils.js';
+import { getId } from '../utils.js';
 import storageService from '../storage-service.js'
 
 function submitList(event) {
@@ -39,7 +39,7 @@ function saveList(li, iconClass, checkbox) {
 
     li.replaceChild(newLink, input);
 
-    const listId = getTaskId(li);
+    const listId = getId(li);
     listsList.edit(newText, listId);
 
     storageService.set('lists', JSON.stringify(listsList.lists));

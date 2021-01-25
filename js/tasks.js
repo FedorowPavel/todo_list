@@ -13,6 +13,10 @@ class TaskList {
         this.tasks = this.tasks.filter(task => task.id !== id)
     }
 
+    deleteTaskByList(listId) {
+        taskList.tasks = taskList.tasks.filter((task) => task.parentListId !== listId);
+    }
+
     check(id) {
         this.tasks = this.tasks.map(task => {
             if (task.id === id) {

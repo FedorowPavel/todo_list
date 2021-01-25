@@ -1,6 +1,6 @@
 import listsList from '../lists-list.js';
 import storageService from '../storage-service.js';
-import { getTaskId } from '../utils.js';
+import { getId } from '../utils.js';
 import taskList from '../tasks.js';
 
 function deleteCheckedLists() {
@@ -12,7 +12,7 @@ function deleteCheckedLists() {
     checkedLists.forEach((checkedList) => {
         checkedList.remove();
 
-        const listId = getTaskId(checkedList);
+        const listId = getId(checkedList);
         listsList.delete(listId);
 
         //удаляем из массива таски соответствующие этому листу

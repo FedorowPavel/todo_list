@@ -1,5 +1,5 @@
 import taskList from '../tasks.js';
-import storageService from '../storage-service.js'
+import storageService from '../storage-service.js';
 
 //функция удаления элемента из списка дел при нажатии на кнопку delBtn
 function delTask(event) {

@@ -1,6 +1,7 @@
 import listsList from '../lists-list.js';
 import storageService from '../storage-service.js'
 import taskList from '../tasks.js';
+import {getId} from '../utils.js'
 
 //функция удаления элемента из списка дел при нажатии на кнопку delBtn
 function delList(event) {
@@ -8,10 +9,12 @@ function delList(event) {
     const { parentNode } = event.target.parentNode;
 
     //удаляем из массива
-    const listId = parseInt(parentNode.id);
+    const listId = getId(parentNode);
+    taskList.deleteTaskByList(listId);
     listsList.delete(listId);
+    
     //удаляем из массива таски соответствующие этому листу
-    taskList.tasks = taskList.tasks.filter((task) => task.parentListId !== listId);
+    // taskList.tasks = taskList.tasks.filter((task) => task.parentListId !== listId);
     
     parentNode.remove();
 

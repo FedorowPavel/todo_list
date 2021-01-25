@@ -1,4 +1,4 @@
-import { getTaskId } from '../utils.js';
+import { getId } from '../utils.js';
 import listsList from '../lists-list.js';
 import storageService from '../storage-service.js';
 
@@ -38,7 +38,7 @@ function checkList(event) {
     }
 
 
-    const listId = getTaskId(li);
+    const listId = getId(li);
     listsList.check(listId);
     storageService.set('lists', JSON.stringify(listsList.lists));
 }

@@ -1,4 +1,4 @@
-export function getTaskId(element) {
+export function getId(element) {
     return parseInt(element.id);
 }
 

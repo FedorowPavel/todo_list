@@ -1,5 +1,5 @@
 import taskList from '../tasks.js';
-import { getTaskId } from '../utils.js';
+import { getId } from '../utils.js';
 import storageService from '../storage-service.js'
 
 //функция для смены стилей отдельного дела при выборе (когда сделано)
@@ -38,7 +38,7 @@ function checkTask(event) {
     }
 
 
-    const taskId = getTaskId(li);
+    const taskId = getId(li);
     taskList.check(taskId);
     storageService.set('tasks', JSON.stringify(taskList.tasks));
 }
