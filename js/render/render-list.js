@@ -17,10 +17,10 @@ function renderList() {
 
 
     taskList.tasks
-        .filter((task) => task.parentListId === listId)
-        .forEach(task => {
-            createTask(task);
-        });
+    .filter((task) => task.parentListId === listId)
+    .forEach(task => {
+        createTask(task);
+    });
 }
 
 export default renderList;
