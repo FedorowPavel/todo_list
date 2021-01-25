@@ -1,4 +1,5 @@
 import deleteCheckedLists from "./list-operations/delete-cheched-lists.js";
+import deleteCheckedTasks from './task-operations/delete-checked-tasks.js';
 import animateBorder from './input_border.js';
 import renderList from './render/render-list.js';
 import renderLists from './render/render-lists.js';
@@ -21,6 +22,7 @@ if (currentUrl === '/list/1') {
 const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
 //вешаем на нее обработчик событий
 deleteCheckedBtn.addEventListener('click', deleteCheckedLists);
+
 
 window.addEventListener('popstate', () => {
     if (window.location.pathname === "/list/1") {

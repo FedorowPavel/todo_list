@@ -1,10 +1,13 @@
 import listsList from '../lists-list.js';
+import taskList from '../tasks.js'
 import storageService from '../storage-service.js';
 import { getTaskId } from '../utils.js';
 
 function deleteCheckedTasks() {
+    
     const checkedTasks = document.querySelectorAll('li.checked');
     const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
+    // console.log(deleteCheckedBtn)
 
     checkedTasks.forEach((checkedTask) => {
         checkedTask.remove();
