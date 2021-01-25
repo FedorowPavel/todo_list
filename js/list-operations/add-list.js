@@ -4,7 +4,7 @@ import editlist from "./edit-list.js";
 import listsList from '../lists-list.js';
 import { generateId } from '../utils.js';
 import storageService from '../storage-service.js';
-import renderList from '../render/render-list.js';
+import { navigateToUrl } from '../routing.js';
 
 
 
@@ -31,15 +31,8 @@ export function createList(list) {
     linkToList.addEventListener('click', (event) => {
         //чтобы решетка не появилась в конце урла
         event.preventDefault();
-
-        window.history.pushState(
-            {},
-            `/list/${list.id}`,
-            window.location.origin + `/list/${list.id}`
-        );
-
-        renderList();
-    })
+        navigateToUrl(`/list/${list.id}`);
+    });
 
 
     //код для установки чекбокса при перезагрузке
