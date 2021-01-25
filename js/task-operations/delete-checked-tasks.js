@@ -1,15 +1,18 @@
-import taskList from '../tasks.js';
+import listsList from '../lists-list.js';
+import taskList from '../tasks.js'
 import storageService from '../storage-service.js';
-import { getTaskId } from '../utils.js';
+import { getId } from '../utils.js';
 
 function deleteCheckedTasks() {
+    
     const checkedTasks = document.querySelectorAll('li.checked');
     const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
+    // console.log(deleteCheckedBtn)
 
     checkedTasks.forEach((checkedTask) => {
         checkedTask.remove();
 
-        const taskId = getTaskId(checkedTask);
+        const taskId = getId(checkedTask);
         taskList.delete(taskId);
     })
 

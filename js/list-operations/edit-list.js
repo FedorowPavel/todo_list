@@ -1,9 +1,9 @@
 import { ENTER_KEY_CODE } from '../constants.js';
-import taskList from '../tasks.js';
+import listsList from '../lists-list.js';
 import { getId } from '../utils.js';
 import storageService from '../storage-service.js'
 
-function submitTask(event) {
+function submitList(event) {
     if (event.keyCode !== ENTER_KEY_CODE) {
         return
     }
@@ -17,10 +17,10 @@ function submitTask(event) {
 
     const checkbox = li.querySelector('input[type="checkbox"]')
 
-    saveTask(li, iconClass, checkbox);
+    saveList(li, iconClass, checkbox);
 }
 
-function saveTask(li, iconClass, checkbox) {
+function saveList(li, iconClass, checkbox) {
     const input = li.querySelector('input[type="text"]');
     const { value: newText } = input;
 
@@ -30,33 +30,35 @@ function saveTask(li, iconClass, checkbox) {
 
     //убираем атрибут дизабл
     checkbox.removeAttribute("disabled");
-    console.log(checkbox.checked)
+    // console.log(checkbox.checked)
 
 
-    const newSpan = document.createElement('span');
-    newSpan.textContent = newText;
+    const newLink = document.createElement('a');
+    newLink.setAttribute('href', '#')
+    newLink.textContent = newText;
 
-    li.replaceChild(newSpan, input);
+    li.replaceChild(newLink, input);
 
-    const taskId = getId(li);
-    taskList.edit(newText, taskId);
-    storageService.set('tasks', JSON.stringify(taskList.tasks));
+    const listId = getId(li);
+    listsList.edit(newText, listId);
+
+    storageService.set('lists', JSON.stringify(listsList.lists));
 
 }
 
-function editTask(event) {
+function editList(event) {
 
-    /* находим спан текущего таска
+    /* находим a текущего таска
     записываем его содержимое  в переменную
-    создаем текстовый инпут с value равным содержимому спана
-    и всталвяем его вместо спана
+    создаем текстовый инпут с value равным содержимому a
+    и всталвяем его вместо a
     после повторного нажатия на кнопку едит,
     сохраняем текущее значение инпута
-    заменяем инпут на спан с новым значением */
+    заменяем инпут на a с новым значением */
 
     const li = event.target.closest('li');
 
-    const span = li.querySelector('span');
+    const link = li.querySelector('a');
 
     //записываем иконки
     const icon = li.querySelector('.edit-btn i');
@@ -66,16 +68,16 @@ function editTask(event) {
 
     const checkbox = li.querySelector('input[type="checkbox"]')
 
-    if (span) {
+    if (link) {
 
 
-        const { textContent: text } = span;
+        const { textContent: text } = link;
 
         const input = document.createElement('input');
         // input.setAttribute('value', text);
         input.setAttribute('type', "text");
 
-        input.addEventListener('keydown', submitTask)
+        input.addEventListener('keydown', submitList)
 
 
         //заменяем класс иконок
@@ -85,7 +87,7 @@ function editTask(event) {
         //устанавливаем атрибут disabel for checkbox
         checkbox.setAttribute("disabled", "true");
 
-        li.replaceChild(input, span);
+        li.replaceChild(input, link);
 
         //делаем автофокус при нажатии на кнопку едит
         input.focus();
@@ -95,10 +97,10 @@ function editTask(event) {
 
         return;
     }
-    saveTask(li, iconClass, checkbox);
+    saveList(li, iconClass, checkbox);
 
 
 
 }
 
-export default editTask;
+export default editList;

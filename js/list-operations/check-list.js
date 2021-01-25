@@ -1,9 +1,9 @@
-import taskList from '../tasks.js';
 import { getId } from '../utils.js';
-import storageService from '../storage-service.js'
+import listsList from '../lists-list.js';
+import storageService from '../storage-service.js';
 
-//функция для смены стилей отдельного дела при выборе (когда сделано)
-function checkTask(event) {
+
+function checkList(event) {
 
     // const target = event.target;
     //понятие деструктуризации
@@ -38,9 +38,10 @@ function checkTask(event) {
     }
 
 
-    const taskId = getId(li);
-    taskList.check(taskId);
-    storageService.set('tasks', JSON.stringify(taskList.tasks));
+    const listId = getId(li);
+    listsList.check(listId);
+    storageService.set('lists', JSON.stringify(listsList.lists));
 }
 
-export default checkTask;
+
+export default checkList;

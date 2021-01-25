@@ -1,10 +1,10 @@
 class StorageService {
     set(key, value) {
-        sessionStorage.setItem(key, value)
+        localStorage.setItem(key, value)
     }
 
     get(key) {
-        return sessionStorage.getItem(key);
+        return localStorage.getItem(key);
     }
 }
 

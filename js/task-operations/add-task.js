@@ -1,31 +1,15 @@
 import checkTask from './check-task.js';
 import delTask from './del-task.js';
 import editTask from "./edit-task.js";
-import taskList from '../tasks.js'
+import taskList from '../tasks.js';
 import storageService from '../storage-service.js';
-
-//находим список дел
-const todoList = document.querySelector('.todo-list ol');
+import { generateId, getListIdByUrl } from '../utils.js';
 
 
-
-function generateId(tasks) {
-    //получаем массив значений свойства id всех объектов task
-    const ids = tasks.map(task => {
-        return task.id;
-    })
-
-    //если у нас пустой массив, значит начианем нумерацию с единицы
-    if (!ids.length) {
-        return 1;
-    }
-    //нвходим макс айди
-    const maxId = Math.max(...ids);
-    //возращаем новый больше макс на 1 
-    return maxId + 1;
-}
 
 export function createTask(task) {
+    //находим список дел
+    const todoList = document.querySelector('.todo-list ol');
 
 
     //создаем элемент списка
@@ -97,6 +81,7 @@ function addTask(event) {
     //создаем объект для хранения текста инпута и состояния чекбокса
     const newTask = {
         id: generateId(taskList.tasks),
+        parentListId: getListIdByUrl(),
         text: todoText,
         checked: false,
     }
