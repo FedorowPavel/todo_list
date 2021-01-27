@@ -2,9 +2,9 @@ const listRoutePattern = /^\/list\/\d+$/;
 import renderList from './render/render-list.js';
 import renderLists from './render/render-lists.js';
 import renderRegistration from './render/render-registration.js';
+import renderLogIn from './render/render-login.js';
 
 const INDEX_URLS = ['/', 'iundex.html'];
-
 const REGISTRATION_URL = '/registration';
 const LOGIN_URL = '/login';
 
@@ -31,6 +31,7 @@ export function renderPage() {
     if (currentUrl === LOGIN_URL) {
         renderLogIn();
     }
+
 }
 
 export function navigateToUrl(url) {

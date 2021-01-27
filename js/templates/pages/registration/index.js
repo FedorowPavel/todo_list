@@ -1,4 +1,7 @@
 const template = `
+<div class="title">
+    <H1>Registration<H1>
+</div>
 <div class="registration-form">
     <form>
         <label>Email</label>

@@ -2,7 +2,8 @@ import { navigateToUrl } from '../routing.js';
 import userList from '../users.js';
 
 export default function loginUser(event) {
-    event.preventDEfault();
+
+    event.preventDefault();
 
     const formData = new FormData(event.target);
 
@@ -20,8 +21,9 @@ export default function loginUser(event) {
     //будем сравниавть введенный пароль с имеющимся
     const hashedPassword = CryptoJS.SHA3(password);
 
-    if (user.password !== hashedPassword) {
-        alert('Invalid Password (does not match')
+    if (user.password !== hashedPassword.toString()) {
+        alert('Invalid Password (does not match)')
+        return
     };
 
     navigateToUrl('/');
