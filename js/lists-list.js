@@ -32,6 +32,10 @@ class ListsList {
             return list;
         })
     }
+
+    getListById(id) {
+        return this.lists.find(list => list.id === id);
+    }
 }
 
 const lists = JSON.parse(storageService.get('lists'));

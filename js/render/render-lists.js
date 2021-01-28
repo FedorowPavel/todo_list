@@ -1,6 +1,7 @@
 import listsTemplate from '../templates/pages/lists/index.js';
 import addList, { createList } from '../list-operations/add-list.js';
 import listsList from '../lists-list.js';
+import currentUser from '../current-user.js';
 
 function renderLists() {
     const rootDiv = document.querySelector('.container');
@@ -15,9 +16,12 @@ function renderLists() {
 
 
 
+    const currentUserId = currentUser.userData.id;
 
 
-    listsList.lists.forEach(list => {
+    listsList.lists
+        .filter((list) => list.userId === currentUserId)
+        .forEach(list => {
         createList(list);
     });
 }

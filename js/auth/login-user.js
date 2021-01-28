@@ -1,4 +1,6 @@
+import currentUser from '../current-user.js';
 import { navigateToUrl } from '../routing.js';
+import storageService from '../storage-service.js';
 import userList from '../users.js';
 
 export default function loginUser(event) {
@@ -25,6 +27,9 @@ export default function loginUser(event) {
         alert('Invalid Password (does not match)')
         return
     };
+
+    currentUser.login(user);
+    storageService.set('currentUser', JSON.stringify(user));
 
     navigateToUrl('/');
 
