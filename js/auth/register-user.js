@@ -1,5 +1,6 @@
 import currentUser from '../current-user.js';
 import { navigateToUrl } from '../routing.js';
+import showErrors from '../show-errors.js';
 import storageService from '../storage-service.js';
 import userList from '../users.js';
 import { generateId } from '../utils.js';
@@ -63,18 +64,22 @@ export default function registerUser(event) {
 
     let hasErrors = false; 
 
-    for (let key in errors) {
-        const span = document.querySelector(`input[name="${key}"] + span`);
-        if (errors[key].length > 0) {
-            hasErrors = true;
-            const errorStr = errors[key].join('<br>');
-            span.innerHTML = errorStr;
-        } else {
-            span.innerHTML = '';
-        }
-    }
+    showErrors(errors, hasErrors);
 
-    if (hasErrors) {
+    // for (let key in errors) {
+    //     const span = document.querySelector(`input[name="${key}"] + span`);
+    //     if (errors[key].length > 0) {
+    //         hasErrors = true;
+    //         const errorStr = errors[key].join('<br>');
+    //         span.innerHTML = errorStr;
+    //     } else {
+    //         span.innerHTML = '';
+    //     }
+    // }
+
+    hasErrors = showErrors(errors, hasErrors);
+
+    if (showErrors(errors, hasErrors)) {
         return
     }
     //шифруем пароль используя метод библиотеки

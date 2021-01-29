@@ -6,13 +6,26 @@ import renderLogIn from './render/render-login.js';
 import { getListIdByUrl } from './utils.js';
 import lists from './lists-list.js';
 import currentUser from './current-user.js';
+import regLoginHeader from './templates/reg-log-header.js';
+import logoutHeader from './templates/logout.js'
 
-const INDEX_URLS = ['/', 'iundex.html'];
-const REGISTRATION_URL = '/registration';
-const LOGIN_URL = '/login';
+
+export const INDEX_URLS = ['/', 'iundex.html'];
+export const REGISTRATION_URL = '/registration';
+export const LOGIN_URL = '/login';
 
 export function renderPage() {
     const { pathname: currentUrl } = window.location;
+    const header = document.querySelector('header .header-links');
+
+    //рендеринг ссылок в зависимости залогинен ли пользователь
+    if (!currentUser.userData) {
+        header.innerHTML = regLoginHeader;
+
+    } else {
+        header.innerHTML = logoutHeader;
+    }
+
 
     if (currentUrl === REGISTRATION_URL) {
         renderRegistration();
@@ -45,15 +58,12 @@ export function renderPage() {
         const list = lists.getListById(listId);
 
         if (list.userId !== currentUser.userData.id) {
-            navigateToUrl('/');
+            
         }
 
         renderList();
         return;
     }
-
-    
-    
 
 }
 
