@@ -14,18 +14,32 @@ function validateLogin({ email, password }) {
     };
 
     if (!email) {
-        errors = { ...errors, email: [...errors.email, 'Email cannot be empty'] };
+        errors = { ...errors, email: [...errors.email, 'Enter email'] };
     }
 
-    if (email && !EMAIL_REGEX.test(email)) {
-        // throw new Error('Email invalid format');
-        errors = { ...errors, email: [...errors.email, 'Email invalid format'] };
+    if (email && !userList.getUserByEmail(email)) {
+        errors = { ...errors, email: [...errors.email, 'User does not exist'] };
     }
 
-    if (!password) {
-        // throw new Error('Password cannot be empty');
-        errors = { ...errors, password: [...errors.password, 'Password cannot be empty'] };
-    }
+    if (
+        userList.getUserByEmail(email)
+        && userList.getUserByEmail(email).password !== CryptoJS.SHA3(password).toString()
+    ) {
+        errors = { ...errors, password: [...errors.password, 'Invalid Password (does not match)'] };
+        }
+    // if (!email) {
+    //     errors = { ...errors, email: [...errors.email, 'Email cannot be empty'] };
+    // }
+
+    // if (email && !EMAIL_REGEX.test(email)) {
+    //     // throw new Error('Email invalid format');
+    //     errors = { ...errors, email: [...errors.email, 'Email invalid format'] };
+    // }
+
+    // if (!password) {
+    //     // throw new Error('Password cannot be empty');
+    //     errors = { ...errors, password: [...errors.password, 'Password cannot be empty'] };
+    // }
 
     return errors;
 }
@@ -69,18 +83,18 @@ export default function loginUser(event) {
     //получаем есть ли юзер по этому имейлу 
     const user = userList.getUserByEmail(email);
 
-    if (!user) {
-        alert('User does not exist');
-        return
-    }
+    // if (!user) {
+    //     alert('User does not exist');
+    //     return
+    // }
 
-    //будем сравниавть введенный пароль с имеющимся
-    const hashedPassword = CryptoJS.SHA3(password);
+    // //будем сравниавть введенный пароль с имеющимся
+    // const hashedPassword = CryptoJS.SHA3(password);
 
-    if (user.password !== hashedPassword.toString()) {
-        alert('Invalid Password (does not match)')
-        return
-    };
+    // if (user.password !== hashedPassword.toString()) {
+    //     alert('Invalid Password (does not match)')
+    //     return
+    // };
 
     currentUser.login(user);
     storageService.set('currentUser', JSON.stringify(user));
