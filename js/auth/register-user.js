@@ -64,7 +64,7 @@ export default function registerUser(event) {
 
     let hasErrors = false; 
 
-    showErrors(errors, hasErrors);
+    // showErrors(errors, hasErrors);
 
     // for (let key in errors) {
     //     const span = document.querySelector(`input[name="${key}"] + span`);
@@ -79,7 +79,7 @@ export default function registerUser(event) {
 
     hasErrors = showErrors(errors, hasErrors);
 
-    if (showErrors(errors, hasErrors)) {
+    if (hasErrors) {
         return
     }
     //шифруем пароль используя метод библиотеки

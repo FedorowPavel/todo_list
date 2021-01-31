@@ -59,7 +59,7 @@ export default function loginUser(event) {
 
     let hasErrors = false;
 
-    showErrors(errors, hasErrors);
+    // showErrors(errors, hasErrors);
 
     // for (let key in errors) {
     //     const span = document.querySelector(`input[name="${key}"] + span`);
@@ -70,6 +70,8 @@ export default function loginUser(event) {
     //     } else {
     //         span.innerHTML = '';
     //     }
+
+    //      return hasErrors;
     // }
 
     hasErrors = showErrors(errors, hasErrors);
