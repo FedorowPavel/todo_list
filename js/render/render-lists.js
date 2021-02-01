@@ -1,6 +1,10 @@
 import listsTemplate from '../templates/pages/lists/index.js';
 import addList, { createList } from '../list-operations/add-list.js';
 import listsList from '../lists-list.js';
+import currentUser from '../current-user.js';
+import storageService from '../storage-service.js';
+import { navigateToUrl, LOGIN_URL } from '../routing.js';
+import logout from '../auth/logout.js';
 
 function renderLists() {
     const rootDiv = document.querySelector('.container');
@@ -14,12 +18,20 @@ function renderLists() {
     addListForm.addEventListener('submit', addList);
 
 
+    const currentUserId = currentUser.userData.id;
 
 
-
-    listsList.lists.forEach(list => {
+    listsList.lists
+        .filter((list) => list.userId === currentUserId)
+        .forEach(list => {
         createList(list);
     });
+    
+    
+    const logoutBtn = document.getElementById('logout');
+    logoutBtn.addEventListener('click', (event)=> logout(event))
+    
+    
 }
 
 export default renderLists;

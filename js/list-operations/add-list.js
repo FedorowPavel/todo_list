@@ -5,6 +5,7 @@ import listsList from '../lists-list.js';
 import { generateId } from '../utils.js';
 import storageService from '../storage-service.js';
 import { navigateToUrl } from '../routing.js';
+import currentUser from '../current-user.js';
 
 
 
@@ -88,6 +89,7 @@ function addList(event) {
     //создам объект для отдельного элемента списка
     const newList = {
         id: generateId(listsList.lists),
+        userId: currentUser.userData.id,
         name: listName
     };
 

@@ -9,10 +9,10 @@ window.addEventListener('popstate', () => {
 });
 
 
-//находим кнопку удаления отмеченых
-const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
-//вешаем на нее обработчик событий
-deleteCheckedBtn.addEventListener('click', deleteCheckedLists);
+// //находим кнопку удаления отмеченых
+// const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
+// //вешаем на нее обработчик событий
+// deleteCheckedBtn.addEventListener('click', deleteCheckedLists);
 
-window.addEventListener('click', animateBorder);
+// window.addEventListener('click', animateBorder);
 
