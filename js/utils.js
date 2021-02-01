@@ -26,3 +26,8 @@ export function getListIdByUrl() {
     const splittedCurrentUrl = currentUrl.split('/');
     return parseInt(splittedCurrentUrl[splittedCurrentUrl.length - 1], 10);
 }
+
+//добавить в логин юзер (const hasserrors = checkIfHasErrors)
+export function checkIfHasErrors(errors) {
+  return Object.keys(errors).some(key => errors[key].length > 0)
+}

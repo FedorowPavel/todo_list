@@ -3,6 +3,7 @@ import { navigateToUrl } from '../routing.js';
 import showErrors from '../show-errors.js';
 import storageService from '../storage-service.js';
 import userList from '../users.js';
+import { checkIfHasErrors } from '../utils.js';
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 
@@ -57,24 +58,11 @@ export default function loginUser(event) {
 
     const errors = validateLogin({ email, password });
 
-    let hasErrors = false;
 
-    // showErrors(errors, hasErrors);
+    showErrors(errors);
 
-    // for (let key in errors) {
-    //     const span = document.querySelector(`input[name="${key}"] + span`);
-    //     if (errors[key].length > 0) {
-    //         hasErrors = true;
-    //         const errorStr = errors[key].join('<br>');
-    //         span.innerHTML = errorStr;
-    //     } else {
-    //         span.innerHTML = '';
-    //     }
 
-    //      return hasErrors;
-    // }
-
-    hasErrors = showErrors(errors, hasErrors);
+    const hasErrors = checkIfHasErrors(errors)
 
     if (hasErrors) {
         return

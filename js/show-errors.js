@@ -1,8 +1,7 @@
-function showErrors(errors, hasErrors) {
+function showErrors(errors) {
     for (let key in errors) {
         const span = document.querySelector(`input[name="${key}"] + span`);
         if (errors[key].length > 0) {
-            hasErrors = true;
             const errorStr = errors[key].join('<br>');
             span.innerHTML = errorStr;
         } else {
@@ -10,7 +9,6 @@ function showErrors(errors, hasErrors) {
         }
     }
 
-    return hasErrors;
 }
 
 export default showErrors;
