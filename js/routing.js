@@ -53,7 +53,6 @@ export function renderPage() {
     if (listRoutePattern.test(currentUrl)) {
         const listId = getListIdByUrl();
 
-        console.log(listId)
 
         const list = lists.getListById(listId);
 

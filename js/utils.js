@@ -22,7 +22,6 @@ export function generateId(tasks) {
 
 export function getListIdByUrl() {
     const currentUrl = window.location.pathname;
-    console.log(currentUrl)
     const splittedCurrentUrl = currentUrl.split('/');
     return parseInt(splittedCurrentUrl[splittedCurrentUrl.length - 1], 10);
 }
